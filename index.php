@@ -1,4 +1,7 @@
+ <?php
+    include 'prijava.php';
  
+ ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -33,15 +36,7 @@
         Zlatara <strong> <i>
             Silver
         </strong></i>
-    </a>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-        <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-        <a class="nav-item nav-link" href="#">Features</a>
-        <a class="nav-item nav-link" href="#">Pricing</a>
-        <a class="nav-item nav-link disabled" href="#">Disabled</a>
-        </div>
-    </div>
+    </a> 
 
     </nav>
 
@@ -54,7 +49,7 @@
             <div class="signin-signup"  ;>
 
                 <!-- sign in form -->
-                <form action="" class="sign-in-form" method="post" style=" padding-left:0px;margin-left:0px;" >
+                <form action="" class="sign-in-form" method="post"  >
                     <h2 class="title">Sign in</h2>
                     <div class="input-field">
                         <i class="fas fa-user"></i>
@@ -65,7 +60,7 @@
                         <input type="password" placeholder="Lozinka" name="lozinka"  required />
                     </div>
               
-                <input type="submit" value="Login" name="signin" class="btn solid" />
+                <input type="submit" value="Login" name="login" id = "login" class="btn solid" />
                    
                    <br>
                    
@@ -91,7 +86,7 @@
                         <i class="fas fa-lock"></i>
                         <input type="password" placeholder="Potvrdite lozinku" name="signup_confirm_lozinka" required />
                     </div>
-                    <input type="submit" class="btn solid" name="signup" value="Sign up" />
+                    <input type="submit" class="btn solid" name="register"  id="register" value="Sign up" />
                     
 
                 </form>
