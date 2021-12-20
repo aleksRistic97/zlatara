@@ -23,7 +23,7 @@
 
 
         public static function vratiSavnakit($conn){
-            $upit = "select * from nakit";
+            $upit = "select * from nakit  n inner join kategorija k on k.idKategorije=n.kategorija";
             return $conn->query($upit);
         }
 
