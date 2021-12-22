@@ -60,7 +60,7 @@
                         <input type="password" placeholder="Lozinka" name="lozinka"  required />
                     </div>
               
-                <input type="submit" value="Login" name="login" id = "login" class="btn solid" />
+                <input type="submit" value="Login" name="login" id = "login" class="btn solid"  />
                    
                    <br>
                    

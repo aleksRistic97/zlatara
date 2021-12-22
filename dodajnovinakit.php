@@ -1,19 +1,48 @@
+<?php
+    include 'config.php';
+    include 'model/kategorija.php';
+
+    $kategorije = Kategorija::vratiSveKategorije($conn); //uzimamo sve kategorije da bismo mogli da ih prikazemo u comboboxu da korisnik moze da odabere, inace korisnik nema pojma koje kategorije mi imamo
+
+
+
+
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Dodaj novi nakit</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
     <style>
+        
+        /* Modify the background color navbara */
+         
+        .navbar-custom {
+            background-color:  #ff6fb7;
+        }
+        /* Modify brand and text color navbara */
+         
+        .navbar-custom .navbar-brand,
+        .navbar-custom .navbar-text {
+            color: Black;
+        }
 
-      
     </style>
 </head>
 <body>
     
 
-          <!-- Image and text -->
+ <!-- Image and text -->
   <nav class="navbar navbar-custom"  >
     <a class="navbar-brand" href="#">
         <img src="images/diamond.png" width="30" height="30" class="d-inline-block align-top" alt="">
@@ -25,20 +54,48 @@
 
     </nav>
 
+    <br><br><br>
     <div class="container">
 
             <form action="" class="sign-in-form" method="post"  >
-                    <h2 class="title">Sign in</h2>
+                    <h2 class="title">Dodaj novi proizvod</h2>
                     <div class="input-field">
-                        <i class="fas fa-user"></i>
-                        <input type="text" placeholder="Email" name="email"  required />
+                        <i class="fa fa-diamond"></i>
+                        <input type="text" placeholder="Naziv.." name="naziv"  required />
                     </div>
                     <div class="input-field">
-                        <i class="fas fa-lock"></i>
-                        <input type="password" placeholder="Lozinka" name="lozinka"  required />
-                    </div> 
-              
-                <input type="submit"   name="login" id = "login" style="background-color: #ff6fb7;  border-radius: 49px;" />
+                        <i class="fa fa-pencil"></i>
+                        <input type="text" placeholder="Opis.." name="opis"  required />
+                    </div>
+                    <div style="font-size:20px" >
+                        <label for="proizvodi">Odaberi kategoriju</label>
+                        <select name="proizvodi" id="proizvodi">
+                        <?php
+                             
+                            while($red = $kategorije->fetch_array()): 
+                            ?>
+                            <option value=<?php echo $red["idKategorije"]?>><?php echo $red["nazivKategorije"]?></option> 
+
+                            <?php   endwhile;   ?>
+                        </select>
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-tag"></i>
+                        <input type="text" placeholder="Cena.." name="cena"  required />
+                    </div>
+                    <div class="input-field">
+                        <i class="fa fa-pencil"></i>
+                        <input type="text" placeholder="Naziv.." name="naziv"  required />
+                    </div>
+                 
+                    <div>
+                     <input type="file" class="form-control" id="slikaNakita" name="slikaNakita"    >
+
+                    </div>
+                    <br><br><br> 
+                    
+                    </s>
+                <input type="submit"  name="login" id = "login" style="background-color: #ff6fb7;  border-radius: 49px;padding:10px" />
                    
                    <br>
                    
@@ -49,6 +106,12 @@
     </div>
 
 
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+     
+   
+     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 </body>
 </html>
