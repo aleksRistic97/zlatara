@@ -50,8 +50,10 @@
             Silver
         </strong></i>
     </a> 
-    <a href="odjava.php" style="color:black;text-decoration: none;">Odjava</a>
-
+    <div>
+        <a class="nav-link" href="glavna.php" style="color:black;text-decoration: none;float:left"><strong>Pocetna</strong> </a>
+        <a   class="nav-link" href="odjava.php" style="color:black;text-decoration: none;float:right">Odjava</a>
+    </div>
     </nav>
 
     <br><br><br>

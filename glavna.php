@@ -3,7 +3,7 @@
     include 'model/nakit.php'; //moramo zbog klase Nakit
     //da bismo mogli da prikazemo sav nakit u tabeli moramo da prvo procitamo sve podatke o svom nakitu iz baze
     $savNakit = Nakit::vratiSavnakit($conn); //rezultat ovog upita cemo prikazati u tabeli dole
-
+  
 
 
 
@@ -79,9 +79,9 @@
                     <tr>
                     <th  >   <?php   echo $red['idNakita'];        ?>     </th>
                     <td> <?php   echo $red['naziv'];        ?> </td>
-                    <td> <?php   echo $red['opis'];        ?> </td>
+                    <td style="max-width: 200px;"> <?php   echo $red['opis'];        ?> </td>
                     <td>  <?php   echo $red['cena'];        ?> </td>
-                    <td>  <?php   echo $red['slika'];        ?> </td>
+                    <td> <img src="<?php  echo "images/".$red['slika'];?>" alt="" srcset="" style="width: 120px;height: auto;">  </td>
                     <td>  <?php   echo $red['nazivKategorije'];        ?> </td>
                     <td>   
 
@@ -139,9 +139,9 @@
         <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
      
    
-     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
+                            <script src="js/main.js"></script>
 </body>
 </html>

@@ -28,7 +28,8 @@
         }
 
         public static function dodajNakit($nakit, $conn){
-            $upit = "insert into nakit(naziv,opis,cena,slika,kategorija) values('$nakit->naziv','$nakit->opis',$nakit->cena,$nakit->kategorija)";
+            $upit = "insert into nakit(naziv,opis,cena,slika,kategorija) values('$nakit->naziv','$nakit->opis',$nakit->cena,'$nakit->slika',$nakit->kategorija)";
+            
             return $conn->query($upit);
         }
         public static function obrisinakit($id, $conn){
