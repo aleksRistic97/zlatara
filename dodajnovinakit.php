@@ -1,11 +1,11 @@
 <?php
     include 'config.php';
     include 'model/kategorija.php';
-
+    
     $kategorije = Kategorija::vratiSveKategorije($conn); //uzimamo sve kategorije da bismo mogli da ih prikazemo u comboboxu da korisnik moze da odabere, inace korisnik nema pojma koje kategorije mi imamo
 
 
-
+ 
 
 
 ?>
@@ -57,19 +57,19 @@
     <br><br><br>
     <div class="container">
 
-            <form action="" class="sign-in-form" method="post"  >
+            <form action="" class="sign-in-form" method="post" id= "dodajNoviProizvod" >
                     <h2 class="title">Dodaj novi proizvod</h2>
                     <div class="input-field">
                         <i class="fa fa-diamond"></i>
-                        <input type="text" placeholder="Naziv.." name="naziv"  required />
+                        <input type="text" placeholder="Naziv.." name="naziv" id="naziv" required />
                     </div>
                     <div class="input-field">
                         <i class="fa fa-pencil"></i>
-                        <input type="text" placeholder="Opis.." name="opis"  required />
+                        <input type="text" placeholder="Opis.." name="opis" id="opis" required />
                     </div>
                     <div style="font-size:20px" >
-                        <label for="proizvodi">Odaberi kategoriju</label>
-                        <select name="proizvodi" id="proizvodi">
+                        <label for="kategorije">Odaberi kategoriju</label>
+                        <select name="kategorije" id="kategorije">
                         <?php
                              
                             while($red = $kategorije->fetch_array()): 
@@ -81,14 +81,13 @@
                     </div>
                     <div class="input-field">
                         <i class="fas fa-tag"></i>
-                        <input type="text" placeholder="Cena.." name="cena"  required />
+                        <input type="text" placeholder="Cena.." name="cena" id="cena" required />
                     </div>
-                    <div class="input-field">
-                        <i class="fa fa-pencil"></i>
-                        <input type="text" placeholder="Naziv.." name="naziv"  required />
-                    </div>
+                   <br>
                  
-                    <div>
+                    <div style="font-size:20px">
+                      <p> Odaberi sliku proizvoda</p>
+                        
                      <input type="file" class="form-control" id="slikaNakita" name="slikaNakita"    >
 
                     </div>
@@ -109,9 +108,9 @@
     <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
      
    
-     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
+                                <script src="js/main.js"></script>
 </body>
 </html>
