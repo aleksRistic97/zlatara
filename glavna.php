@@ -88,7 +88,7 @@
 
                     <form  method="post">
                         <button type="button" class="btn btn-success"       >   <a href="izmeninakit.php" style="text-decoration: none;color:white";><i class="fas fa-pencil-alt"></i></a></button> 
-                        <button type="button" class="btn btn-danger"    ><i class="fas fa-trash" onclick="obrisiOdecu(<?php echo   $red['idNakita'];?>)"></i></button>  
+                        <button type="button" class="btn btn-danger"    ><i class="fas fa-trash" onclick="obrisinakit(<?php echo   $red['idNakita'];?>)"></i></button>  
                         <button type="button" class="btn btn-warning" onclick="prikaziNakit(<?php echo   $red['idNakita'];?>)" ><a href="prikazNakita.php"  style="text-decoration: none;color:white";> <i class="far fa-id-card"></i></a></button>   </td>
                     </form>
                     </td>
