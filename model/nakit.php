@@ -36,7 +36,10 @@
             $upit = " delete from nakit where idNakita=$id";
             return $conn->query($upit);
         }
-
+        public static function vratiNakit($id, $conn){
+            $upit = " select * from nakit n inner join kategorija k on n.kategorija = k.idKategorije where idNakita=$id";
+            return $conn->query($upit);
+        }
 
 
 

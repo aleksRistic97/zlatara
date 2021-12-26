@@ -3,9 +3,10 @@
     include 'model/nakit.php'; //moramo zbog klase Nakit
     //da bismo mogli da prikazemo sav nakit u tabeli moramo da prvo procitamo sve podatke o svom nakitu iz baze
     $savNakit = Nakit::vratiSavnakit($conn); //rezultat ovog upita cemo prikazati u tabeli dole
-  
+ 
 
-
+    
+   
 
 ?>
 
@@ -86,10 +87,10 @@
                     <td>   
 
                     <form  method="post">
-                                                <button type="button" class="btn btn-success"    data-toggle="modal" data-target="#editModal"  onclick="azurirajOdecu(<?php echo   $red['id'];?>)" >  <i class="fas fa-pencil-alt"></i> </button> 
-                                                <button type="button" class="btn btn-danger"    ><i class="fas fa-trash" onclick="obrisiOdecu(<?php echo   $red['id'];?>)"></i></button>  
-                                                <button type="button" class="btn btn-warning"   data-toggle="modal" data-target="#profileModal"  onclick="prikaziOdecu(<?php echo   $red['id'];?>)" ><i class="far fa-id-card"></i></button>   </td>
-                                                </form>
+                        <button type="button" class="btn btn-success"       >   <a href="izmeninakit.php" style="text-decoration: none;color:white";><i class="fas fa-pencil-alt"></i></a></button> 
+                        <button type="button" class="btn btn-danger"    ><i class="fas fa-trash" onclick="obrisiOdecu(<?php echo   $red['idNakita'];?>)"></i></button>  
+                        <button type="button" class="btn btn-warning" onclick="prikaziNakit(<?php echo   $red['idNakita'];?>)" ><a href="prikazNakita.php"  style="text-decoration: none;color:white";> <i class="far fa-id-card"></i></a></button>   </td>
+                    </form>
                     </td>
 
 
@@ -104,7 +105,7 @@
 
 
 
-
+        <!-- Profile modal -->
 
 
 
@@ -142,6 +143,6 @@
         <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-                            <script src="js/main.js"></script>
+      <script src="js/main.js"></script>
 </body>
 </html>
