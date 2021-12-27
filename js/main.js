@@ -1,6 +1,6 @@
 
  $('#dodajNoviProizvod').submit(function () {
-alert("AA");
+
     var form = $('#dodajNoviProizvod')[0];
     console.log(form);
     var formData = new FormData(form);

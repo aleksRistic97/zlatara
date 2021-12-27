@@ -137,7 +137,7 @@
 
             <!--Header-->
             <div class="modal-header" >
-                <img src="" alt="avatar" id="slikaPreview" class="rounded"  style="margin-left: auto;margin-right: auto; ">
+                <img src="" alt="avatar" id="slikaPreview" class="rounded"  style="margin-left: auto;margin-right: auto; width: 180px;height: auto;"  >
             </div>
             <!--Body-->
             <div class="modal-body text-center mb-1">
