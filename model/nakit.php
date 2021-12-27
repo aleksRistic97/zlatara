@@ -41,7 +41,7 @@
             return $conn->query($upit);
         }
         public static function azurirajNakit($nakit, $conn){
-            $upit = "update nakit set naziv='$nakit->naziv',opis='$nakit->opis',cena=$nakit->cena,slika='$nakit->slika',kategorija=$nakit->kategorija where id = $nakit->idNakita";
+            $upit = "update nakit set naziv='$nakit->naziv',opis='$nakit->opis',cena=$nakit->cena,slika='$nakit->slika',kategorija=$nakit->kategorija where idNakita = $nakit->idNakita";
             
             return $conn->query($upit);
         }

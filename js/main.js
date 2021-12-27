@@ -39,15 +39,11 @@ alert("AA");
 
 function prikaziNakit(prikazid){
     
-    alert(prikazid);
+    
     $.post("handler/get.php",{prikazid:prikazid},function(data,status){
         console.log(data);
         var nakit=JSON.parse(data);//
-        console.log(nakit);
-    
-
-        //$('#sakrivenoPolje2').val(nakit.slika  );
-       // $('#sakrivenoPolje').val(nakit.id  );
+        console.log(nakit); 
         $('#nazivPreview').text(nakit.naziv  );
         $('#opisPreview').text(nakit.opis);
         $('#cenaPreview').text(nakit.cena);
@@ -62,30 +58,30 @@ function prikaziNakit(prikazid){
 }
 
 
-/*function azurirajOdecu(azurirajid){ //ovo je kad korisnik klikne dugme iz tabele za azuriranje
+function azurirajNakit(azurirajid){ //ovo je kad korisnik klikne dugme iz tabele za azuriranje
     //prvo moramo da popunimo formu sa vec unetim podacima pa onda da ih azuriramo
-    
-    //kopiramo ovo iz prethodne funkcije
+  
     $.post("handler/get.php",{azurirajid:azurirajid},function(data,status){
-         
-          var odecaid=JSON.parse(data);//
-                  //uzimamo podatke iz baze i cuvamo ih u input field
-        console.log(odecaid.slika);
-        console.log(odecaid.id);
+        console.log(data);
+        var nakit=JSON.parse(data);//
+        console.log(nakit); 
+        $('#nazivEdit').val(nakit.naziv  );
+        $('#opisEdit').val(nakit.opis);
+        $('#kategorijeEdit').val(nakit.kategorija).change();
+        console.log(nakit.kategorija);
+        $('#cenaEdit').val(nakit.cena);
 
-          $('#sakrivenoPolje2').val(odecaid.slika  );
-          $('#sakrivenoPolje').val(odecaid.id  );
-          $('#naziv2').val(odecaid.naziv  );
-          $('#opis2').val(odecaid.opis);
-          $('#cena2').val(odecaid.cena);
-   
-         
+        $('#sakrivenoPoljeID').val(nakit.idNakita);
+        console.log(nakit.slika);
+        $('#sakrivenoPoljeSLIKA').val(nakit.slika);
+        
+
+
+    }); 
+
   
-  
-      }); 
 
-
-}*/
+}
 
 
 
@@ -93,8 +89,9 @@ function prikaziNakit(prikazid){
 
 
 //ovo je kad korisnik klikne dugme unutar forme da sacuva promene 
-$('#izmeniProizvod').submit(function () {
-    var form = $('#izmeniProizvod')[0];
+$('#editform').submit(function () {
+    alert("A");
+    var form = $('#editform')[0];
     var formData = new FormData(form);
     event.preventDefault();  
    
@@ -112,13 +109,13 @@ $('#izmeniProizvod').submit(function () {
     request.done(function (response, textStatus, jqXHR) {
       
         if (response === "Success") {
-            alert("Odeca azurirana");
+            alert("Uspesno azurirano");
             
             location.reload(true);
         }
         else {
        
-            console.log("Odeca nije azurirana" + response);
+            console.log("Azuriranje neuspesno" + response);
         }
     });
 

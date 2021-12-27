@@ -1,9 +1,11 @@
 <?php
     include 'config.php';
     include 'model/kategorija.php';
+   
     
     $kategorije = Kategorija::vratiSveKategorije($conn); //uzimamo sve kategorije da bismo mogli da ih prikazemo u comboboxu da korisnik moze da odabere, inace korisnik nema pojma koje kategorije mi imamo
-
+ 
+    
 
  
 
@@ -119,6 +121,6 @@
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-                                <script src="js/main.js"></script>
+     <script src="js/main.js"></script>
 </body>
 </html>

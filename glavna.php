@@ -1,12 +1,11 @@
 <?php
     include 'config.php'; //moramo zbog $conn
     include 'model/nakit.php'; //moramo zbog klase Nakit
+    include 'model/kategorija.php';
     //da bismo mogli da prikazemo sav nakit u tabeli moramo da prvo procitamo sve podatke o svom nakitu iz baze
     $savNakit = Nakit::vratiSavnakit($conn); //rezultat ovog upita cemo prikazati u tabeli dole
- 
-
-    
-   
+  
+    $kategorije = Kategorija::vratiSveKategorije($conn); //potrebno da bismo mogli da ucitamo sve kategorije u modalu za izmenu 
 
 ?>
 
@@ -21,6 +20,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
     integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
    <style>
         
         /* Modify the background color navbara */
@@ -82,17 +82,17 @@
                     <td> <?php   echo $red['naziv'];        ?> </td>
                     <td style="max-width: 200px;"> <?php   echo $red['opis'];        ?> </td>
                     <td>  <?php   echo $red['cena'];        ?> </td>
-                    <td> <img src="<?php  echo "images/".$red['slika'];?>" alt="" srcset="" style="width: 120px;height: auto;">  </td>
-                    <td>  <?php   echo $red['nazivKategorije'];        ?> </td>
+                    <td> <img src="<?php  echo "images/".$red['slika'];?>" alt="" srcset="" style="width: 180px;height: auto;">  </td>
+                    <td style="text-align:center">  <?php   echo $red['nazivKategorije'];        ?> </td>
                     <td>   
 
                     <form  method="post">
-                        <button type="button" class="btn btn-success"       >   <a href="izmeninakit.php" style="text-decoration: none;color:white";><i class="fas fa-pencil-alt"></i></a></button> 
+                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#editModal" onclick="azurirajNakit(<?php echo   $red['idNakita'];?>)"     >    <i class="fas fa-pencil-alt"></i> </button> 
                         <button type="button" class="btn btn-danger"    ><i class="fas fa-trash" onclick="obrisinakit(<?php echo   $red['idNakita'];?>)"></i></button>  
                         <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#profileModal"  onclick="prikaziNakit(<?php echo   $red['idNakita'];?>)" >  <i class="far fa-id-card"></i></a></button>   </td>
                     </form>
                     </td>
-
+                    
 
                     </tr>
                     
@@ -153,7 +153,86 @@
 
 
 
+<!-- edit form modal -->
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"> Izmena nakita</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+     
 
+
+      <form   class="sign-in-form" id="editform" name="editform" method="POST" enctype="multipart/form-data" >
+        <div class="modal-body">
+           
+      
+
+        
+         
+        <div class="input-field">
+            <i class="fa fa-diamond"></i>
+            <input type="text" placeholder="Naziv.." name="nazivEdit" id="nazivEdit" required />
+        </div>
+        <div class="input-field">
+            <i class="fa fa-pencil"></i>
+            <input type="text" placeholder="Opis.." name="opisEdit" id="opisEdit" required />
+        </div>
+        <div style="font-size:20px" >
+            <label for="kategorijeEdit">Odaberi kategoriju</label>
+            <select name="kategorijeEdit" id="kategorijeEdit">
+            <?php
+                 
+                while($red = $kategorije->fetch_array()): 
+                ?>
+                  <option value=<?php echo $red["idKategorije"]?>><?php echo $red["nazivKategorije"]?></option> 
+
+                <?php   endwhile;   ?>
+            </select>
+        </div>
+        <div class="input-field">
+            <i class="fas fa-tag"></i>
+            <input type="text" placeholder="Cena.." name="cenaEdit" id="cenaEdit" required />
+        </div>
+       <br>
+     
+        <div style="font-size:20px;margin:0px">
+            <p> Odaberi sliku proizvoda</p>
+            
+            <input type="file" class="form-control" id="slikaNakitaEdit" name="slikaNakitaEdit"    >
+
+         
+ 
+       
+            <!-- Dodajemo ovde jedno skriveno polje da bismo sacuvali id nakita koji azuriramo da bismo kasnije taj id mogli da koristimo u edit.php -->
+            <input type="hidden" name="sakrivenoPoljeID" id="sakrivenoPoljeID" readonly>
+
+
+            <!-- Dodajemo jos jedno skriveno polje u kom cemo samo cuvati putanju do slike  -->
+            <input type="hidden" name="sakrivenoPoljeSLIKA"   id="sakrivenoPoljeSLIKA" readonly>
+    
+
+
+
+        </div> 
+
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-success" id="editButton" >Submit</button> 
+        </div>
+ 
+
+      </form>
+    </div>
+  </div>
+</div>
+<!-- edit form modal end -->
 
 
 

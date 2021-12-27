@@ -2,7 +2,7 @@
 <?php
     include '../config.php';
     include '../model/nakit.php'; 
- 
+    
  
  
     if(isset($_POST['prikazid']) ){
@@ -17,27 +17,28 @@
         echo json_encode($response[0]);
 
     }else{
-        echo "BB";
+        
         $response['status']=200;  
         $response['message']="Data not found";
     }
 
-
-   /* if(  isset($_POST['azurirajid'])){
-        $rez = KomadOdece::vratiKomadOdecePoID($_POST['azurirajid'],$conn);
-
+    if(  isset($_POST['azurirajid'])){
+        
+        $rez = Nakit::vratiNakit($_POST['azurirajid'],$conn);
+    
         $response = array();
         while($red=mysqli_fetch_assoc($rez)){
-            $response = $red;
+            $response[] = $red;
         }
-        //echo $response;
-        echo json_encode($response);
-
+       
+        echo json_encode($response[0]);
+       
     }else{
+        
         $response['status']=200; //status OK
         $response['message']="Data not found";
-    }*/
-
+    }
+   
 
 
 
