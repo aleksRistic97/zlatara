@@ -50,16 +50,33 @@
         <a class="nav-link" href="dodajnovinakit.php" style="color:black;text-decoration: none;float:left"><strong>Dodaj nov nakit</strong> </a>
         <a   class="nav-link" href="odjava.php" style="color:black;text-decoration: none;float:right">Odjava</a>
     </div>
+    
     </nav>
+   
         <br><br><br>
 
-
+        <center><h1>Dobrodosli u nasu ponudu!</h1></center>
+        <br>
         <!-- Ovde cemo imati tabelu koja ce sadrzati sav nakit koji posedujemo -->
-        <div class="container">
-            <div class="form-outline"    style="float:right">                    
-                <input type="search" id="pretraga" class="form-control" onkeyup="pretragaPoImenu()"  placeholder="Search.." />
+        <div      style="margin-left: 25%;margin-right: 25%;">                    
+                        <input type="search" id="pretraga" class="form-control"    onkeyup="pretragaPoImenu()"    placeholder="Search.." />
                        
-            </div>
+                    
+                      
+                      
+                      <button type="button" class="btn btn-warning"  onclick="sortiraj()">Sortiraj<i class="fa fa-sort" aria-hidden="true" ></i></button>
+                      <select name="kriterijum" id="kriterijum" class="criteria">
+                          <option value="price">Cena</option> 
+                          <option value="name">Naziv</option>
+                    </select>
+
+
+                  
+                 
+          </div>
+        <div class="container">
+             
+        <!-- Ovde cemo imati tabelu koja ce sadrzati sav nakit koji posedujemo -->
             <br><br>
             <table class="table" id="tableNakit">
                 <thead>
