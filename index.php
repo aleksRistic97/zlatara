@@ -76,8 +76,9 @@
                     </div>
                     <div class="input-field">
                         <i class="fas fa-envelope"></i>
-                        <input type="email" placeholder="Email" name="signup_email"  required />
+                        <input type="email" placeholder="Email" name="signup_email" id="signup_email"   onblur="proveri(document.getElementById('signup_email').value)"   required />
                     </div>
+                    <div  id="user">Informacija o validnosti unetog email-a</div>
                     <div class=" input-field">
                         <i class="fas fa-lock"></i>
                         <input type="password" placeholder="Lozinka" name="signup_lozinka"  required />
@@ -133,6 +134,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
     <script src="js/app.js"></script>
+    <script src="js/provera.js"></script>
+
 </body>
 
 </html>
