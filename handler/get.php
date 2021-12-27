@@ -6,7 +6,7 @@
  
  
     if(isset($_POST['prikazid']) ){
-       echo 'AA';
+        
         $rez = Nakit::vratiNakit($_POST['prikazid'],$conn);
     
         $response = array();
@@ -14,10 +14,10 @@
             $response[] = $red;
         }
        
-        echo json_encode($response);
+        echo json_encode($response[0]);
 
     }else{
-        echo 'B';
+        echo "BB";
         $response['status']=200;  
         $response['message']="Data not found";
     }

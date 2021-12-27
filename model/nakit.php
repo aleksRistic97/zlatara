@@ -40,8 +40,12 @@
             $upit = " select * from nakit n inner join kategorija k on n.kategorija = k.idKategorije where idNakita=$id";
             return $conn->query($upit);
         }
-
-
+        public static function azurirajNakit($nakit, $conn){
+            $upit = "update nakit set naziv='$nakit->naziv',opis='$nakit->opis',cena=$nakit->cena,slika='$nakit->slika',kategorija=$nakit->kategorija where id = $nakit->idNakita";
+            
+            return $conn->query($upit);
+        }
+        
 
     }
 

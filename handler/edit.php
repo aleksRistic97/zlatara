@@ -6,10 +6,10 @@
      
 
         //kada azuriamo neku odecu slika je opciona, pa cemo ovo raditi samo ako je korisnik postavio novu sliku
-        if($_FILES["uploadfileEdit"]["name"]!=""){ //ovako znamo da korisnik nije nista uneo
-            $filename = $_FILES["uploadfileEdit"]["name"];
+        if($_FILES["slikaNakitaEdit"]["name"]!=""){ //ovako znamo da korisnik nije nista uneo
+            $filename = $_FILES["slikaNakitaEdit"]["name"];
            
-            $tempname = $_FILES["uploadfileEdit"]["tmp_name"];    
+            $tempname = $_FILES["slikaNakitaEdit"]["tmp_name"];    
             $folder = "../images/".$filename;
             move_uploaded_file($tempname, $folder);
         }else{
@@ -25,7 +25,7 @@
             $nakit = new Nakit(null,$_POST['nazivEdit'],$_POST['opisEdit'],$_POST['cenaEdit'],$filename,$_POST['kategorijeEdit']);
             
                 
-            $status=Nakit::dodajNakit($nakit,$conn);
+            $status=Nakit::azurirajNakit($nakit,$conn);
               
         
             

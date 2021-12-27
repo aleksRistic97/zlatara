@@ -249,7 +249,11 @@
     
   </div>
   
-  
+  <div class="profile-bio">
+    
+    <p id="cenaPreview"> </p>
+    
+  </div>
   
 </aside>
 <!-- that’s all folks! -->

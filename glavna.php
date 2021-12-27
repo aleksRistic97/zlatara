@@ -89,7 +89,7 @@
                     <form  method="post">
                         <button type="button" class="btn btn-success"       >   <a href="izmeninakit.php" style="text-decoration: none;color:white";><i class="fas fa-pencil-alt"></i></a></button> 
                         <button type="button" class="btn btn-danger"    ><i class="fas fa-trash" onclick="obrisinakit(<?php echo   $red['idNakita'];?>)"></i></button>  
-                        <button type="button" class="btn btn-warning" onclick="prikaziNakit(<?php echo   $red['idNakita'];?>)" ><a href="prikazNakita.php"  style="text-decoration: none;color:white";> <i class="far fa-id-card"></i></a></button>   </td>
+                        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#profileModal"  onclick="prikaziNakit(<?php echo   $red['idNakita'];?>)" >  <i class="far fa-id-card"></i></a></button>   </td>
                     </form>
                     </td>
 
@@ -107,6 +107,49 @@
 
         <!-- Profile modal -->
 
+       <!--Modal: PROFILE-->
+       <div class="modal fade" id="profileModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog cascading-modal modal-avatar modal-sm" role="document">
+            <!--Content-->
+            <div class="modal-content">
+
+            <!--Header-->
+            <div class="modal-header" >
+                <img src="" alt="avatar" id="slikaPreview" class="rounded"  style="margin-left: auto;margin-right: auto; ">
+            </div>
+            <!--Body-->
+            <div class="modal-body text-center mb-1">
+
+                <h5 class="mt-1 mb-2" id="nazivPreview"></h5>
+
+                <div class="md-form ml-0 mr-0" style="text-align: center;">
+                <p id="opisPreview">   </p>
+                <i id="cenaPreview" class="fa fa-tag"  aria-hidden="true"></i>
+                    <br>
+            
+                </div>
+
+        <div class="text-center mt-4">
+           
+
+
+        </div>
+      </div>
+
+
+      <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+         
+        </div>
+
+
+
+
+    </div>
+    <!--/.Content-->
+  </div>
+</div>
+<!--Modal: Login with Avatar Form-->
 
 
 

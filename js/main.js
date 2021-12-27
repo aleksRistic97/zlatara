@@ -38,34 +38,26 @@ alert("AA");
 
 
 function prikaziNakit(prikazid){
-     alert(prikazid);
-    request = $.ajax({
-        url: 'handler/get.php',
-        type: 'post',
-        data: { 'prikazid': prikazid },
-        dataType: 'json'
-    });
-    console.log("J");
+    
     alert(prikazid);
-    console.log(request);
-    alert(prikazid);
-    request.done(function (response, textStatus, jqXHR) {
-        console.log(prikazid);
-        console.log(response);
-        console.log(textStatus);
-        console.log(jqXHR);
-       // $('#nazivPreview').text("   " + nakit.naziv  );
-     //   $('#opisPreview').text("   " +  nakit.opis);
-     //   $('#cenaPreview').text("   " +  nakit.cena);
+    $.post("handler/get.php",{prikazid:prikazid},function(data,status){
+        console.log(data);
+        var nakit=JSON.parse(data);//
+        console.log(nakit);
+    
+
+        //$('#sakrivenoPolje2').val(nakit.slika  );
+       // $('#sakrivenoPolje').val(nakit.id  );
+        $('#nazivPreview').text(nakit.naziv  );
+        $('#opisPreview').text(nakit.opis);
+        $('#cenaPreview').text(nakit.cena);
  
-      //  document.getElementById("slikaPreview").src = 'images/'+odecaid.slika;
-    });
-    request.fail(function (jqXHR, textStatus, errorThrown) {
+        document.getElementById("slikaPreview").src = 'images/'+nakit.slika;
 
-        alert(prikazid);
-        console.error('Greska: ' + textStatus, errorThrown);
-    });
 
+    }); 
+
+ 
     
 }
 
