@@ -56,7 +56,12 @@
 
         <!-- Ovde cemo imati tabelu koja ce sadrzati sav nakit koji posedujemo -->
         <div class="container">
-            <table class="table">
+            <div class="form-outline"    style="float:right">                    
+                <input type="search" id="pretraga" class="form-control" onkeyup="pretragaPoImenu()"  placeholder="Search.." />
+                       
+            </div>
+            <br><br>
+            <table class="table" id="tableNakit">
                 <thead>
                     <tr>
                     <th scope="col">ID</th>
@@ -78,20 +83,20 @@
                     ?>
 
                     <tr>
-                    <th  >   <?php   echo $red['idNakita'];        ?>     </th>
-                    <td> <?php   echo $red['naziv'];        ?> </td>
-                    <td style="max-width: 200px;"> <?php   echo $red['opis'];        ?> </td>
-                    <td>  <?php   echo $red['cena'];        ?> </td>
-                    <td> <img src="<?php  echo "images/".$red['slika'];?>" alt="" srcset="" style="width: 180px;height: auto;">  </td>
-                    <td style="text-align:center">  <?php   echo $red['nazivKategorije'];        ?> </td>
-                    <td>   
+                        <th  >   <?php   echo $red['idNakita'];        ?>     </th>
+                        <td> <?php   echo $red['naziv'];        ?> </td>
+                        <td style="max-width: 200px;"> <?php   echo $red['opis'];        ?> </td>
+                        <td>  <?php   echo $red['cena'];        ?> </td>
+                        <td> <img src="<?php  echo "images/".$red['slika'];?>" alt="" srcset="" style="width: 180px;height: auto;">  </td>
+                        <td style="text-align:center">  <?php   echo $red['nazivKategorije'];        ?> </td>
+                        <td>   
 
-                    <form  method="post">
-                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#editModal" onclick="azurirajNakit(<?php echo   $red['idNakita'];?>)"     >    <i class="fas fa-pencil-alt"></i> </button> 
-                        <button type="button" class="btn btn-danger"    ><i class="fas fa-trash" onclick="obrisinakit(<?php echo   $red['idNakita'];?>)"></i></button>  
-                        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#profileModal"  onclick="prikaziNakit(<?php echo   $red['idNakita'];?>)" >  <i class="far fa-id-card"></i></a></button>   </td>
-                    </form>
-                    </td>
+                        <form  method="post">
+                            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#editModal" onclick="azurirajNakit(<?php echo   $red['idNakita'];?>)"     >    <i class="fas fa-pencil-alt"></i> </button> 
+                            <button type="button" class="btn btn-danger"    ><i class="fas fa-trash" onclick="obrisinakit(<?php echo   $red['idNakita'];?>)"></i></button>  
+                            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#profileModal"  onclick="prikaziNakit(<?php echo   $red['idNakita'];?>)" >  <i class="far fa-id-card"></i></a></button>   </td>
+                        </form>
+                        </td>
                     
 
                     </tr>
